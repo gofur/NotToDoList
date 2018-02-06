@@ -1,19 +1,58 @@
-//first import
 import React, {Component} from 'react';
-import {View,Text} from 'react-native';
+import {
+  Container, Content, Text,
+  Header, Body, List, ListItem,
+  Left, Right, CheckBox
+} from 'native-base';
 
-//import Component
-import Header from './components/Header';
-import Body from './components/Body';
+export default class App extends Component{
 
-//create class
-export default class App extends Component {
+  todos = [
+    {
+      id: "1",
+      todo: "First Not To Do"
+    },
+    {
+      id: "2",
+      todo: "Second Not To Do"
+    },
+    {
+      id: "3",
+      todo: "Third Not To Do"
+    }
+  ];
+
+
   render(){
-    return (
-      <View style={{flex:1, justifyContent:'center'}}>
-        <Header title="Not To Do List" backgroundColor="yellow" />
-        <Body/>
-      </View>
-    )
+    return(
+      <Container>
+        <Header>
+          <Body>
+            <Text>Not To Do List</Text>
+          </Body>
+        </Header>
+
+        <Content>
+          <List>
+
+
+            {this.todos.map((todo)=> (
+              <ListItem key={todo.id}>
+                <Left>
+                  <CheckBox checked={false} />
+                </Left>
+                <Body>
+                  <Text>{todo.todo}</Text>
+                </Body>
+                <Right/>
+              </ListItem>
+            ))}
+
+
+          </List>
+        </Content>
+      </Container>
+    );
+
   }
 }
