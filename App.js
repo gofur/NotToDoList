@@ -42,9 +42,9 @@ export default class App extends Component{
             <FlatList
               data={this.todos}
               keyExtractor={this._keyExtractor}
-              renderItem={({item}) => <TodoItem todo={item}>}
+              renderItem={({item}) => <TodoItem todo={item}/>}
             />
-            // {this.todos.map((todo)=> <TodoItem todo={todo} key={todo.id}/>)}
+             {/*this.todos.map((todo)=> <TodoItem todo={todo} key={todo.id}/>)*/}
           </List>
         </Content>
       </Container>
