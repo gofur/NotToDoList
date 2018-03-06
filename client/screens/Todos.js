@@ -5,6 +5,7 @@ import {
   Left, Right, CheckBox, Fab, Icon,
 } from 'native-base';
 import {FlatList} from 'react-native';
+import Expo from 'expo';
 
 
 import TodoItem from '../components/TodoItem';
@@ -15,13 +16,27 @@ export default class Todos extends Component{
     super();
     this.state =  {
       count: 0,
-      todos: []
+      todos: [],
+      loading: true
     };
+
   }
+
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf")
+    });
+    this.setState({ loading: false });
+  }
+
 
   _keyExtractor = (item, index) => item.id;
 
   render(){
+    if (this.state.loading) {
+      return <Expo.AppLoading />;
+    }
+
     return(
       <Container>
 
