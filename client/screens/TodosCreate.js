@@ -22,7 +22,10 @@ export default class TodosCreate extends Component {
   }
 
   handleSubmit(){
-    alert(this.state.text);
+    if(this.state.text !== undefined)
+    {
+      alert(this.state.text);
+    }
   }
 
   render() {
