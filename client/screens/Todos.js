@@ -19,7 +19,6 @@ export default class Todos extends Component{
       todos: [],
       loading: true
     };
-
   }
 
   async componentWillMount() {
